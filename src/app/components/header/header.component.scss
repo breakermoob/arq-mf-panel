@@ -1,0 +1,14 @@
+.chete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 30px;
+    height: 40px;
+    padding-top: 2px;
+    border-radius: 5px;
+    @media all and (max-width: 768px) {
+        margin-left: 1rem;
+        height: 40px;
+    }
+}

@@ -1,0 +1,25 @@
+.arq-mf-icon {
+    color: #4b5055;
+}
+.arq-mf-icon--center {
+    color: #dd1b16;
+    width: auto;
+    text-decoration: none;
+}
+.arq-mf-icon:hover {
+    color: #6a7179;
+}
+
+.chete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 40px;
+    height: 50px;
+    padding-top: 2px;
+    border-radius: 5px;
+    @media all and (max-width: 768px) {
+        height: 50px;
+    }
+}
