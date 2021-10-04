@@ -13,16 +13,16 @@ export class GridComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.data = JSON.parse(window.localStorage.getItem('returnData'));
     const iframe = document.getElementById('ifr')
-    window.addEventListener("message", messageHandler, false);
-    function messageHandler(event) {
-      const { action, key, value } = event.data;
-      if (action == 'returnData') {
-        window.localStorage.setItem(key, value);
-        this.data = JSON.parse(value);
-        console.log(value);
-        console.log(this.data);
-      }
+    window.addEventListener("message", this.messageHandler, false);
+  }
+
+  messageHandler(event) {
+    const { action, key, value } = event.data;
+    if (action == 'returnData') {
+      window.localStorage.setItem(key, value);
+      this.data = JSON.parse(window.localStorage.getItem(key));
     }
   }
 
