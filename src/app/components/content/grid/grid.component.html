@@ -1,5 +1,4 @@
 <app-data-control></app-data-control>
-
 <section class="container-fluid arq-mf-gallery bg-secondary py-4 px-0" *ngIf="data; else loader">
   <div class="container-fluid bg-dark">
     <div class="container d-flex align-items-center justify-content-between">
@@ -31,3 +30,5 @@
     <h2 class=" text-light">No hay datos disponibles</h2>
   </section>
 </ng-template>
+
+<div (click)="setValues()" #chete></div>

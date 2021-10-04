@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 @Component({
@@ -9,6 +9,8 @@ import { Observable, Subject } from 'rxjs';
 export class GridComponent implements OnInit {
 
   public data;
+
+  @ViewChild('chete') chete: ElementRef;
 
   constructor() { }
 
@@ -22,8 +24,12 @@ export class GridComponent implements OnInit {
     const { action, key, value } = event.data;
     if (action == 'returnData') {
       window.localStorage.setItem(key, value);
-      this.data = JSON.parse(window.localStorage.getItem(key));
+      this.chete.nativeElement.click();
     }
+  }
+
+  setValues() {
+    this.data = JSON.parse(window.localStorage.getItem('returnData'));
   }
 
 }
