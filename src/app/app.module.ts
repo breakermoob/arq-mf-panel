@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DataControlComponent } from './components/content/data-control/data-control.component';
+import { GridComponent } from './components/content/grid/grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DataControlComponent
+    DataControlComponent,
+    GridComponent,
   ],
   imports: [
     BrowserModule,

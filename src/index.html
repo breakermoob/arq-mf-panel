@@ -19,7 +19,22 @@
 
 <body>
   <app-root></app-root>
-  <iframe style="display:none;" src="https://microfrontends.rocks/transfer.html" id="ifr"></iframe>
+  <iframe style="display:none;" src="https://admin.microfrontends.rocks/transfer.html" id="ifr"></iframe>
+  <script>
+    const iframe = document.getElementById('ifr')
+    iframe.contentWindow.postMessage({
+      action: 'get',
+      key: 'dataPanel'
+    })
+    window.addEventListener("mensaje", messageHandler, falso);
+    function messageHandler(evento) {
+      const { action, key, value } = event.data
+      if (action == 'returnData') {
+        useData(key, value)
+        console.log(event);
+      }
+    }
+  </script>
 </body>
 
 </html>

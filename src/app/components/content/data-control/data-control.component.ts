@@ -33,15 +33,20 @@ export class DataControlComponent implements OnInit {
   }
 
   sendData() {
-    this.postCrossDomainMessage(this.postMsg);
+    this.postCrossDomainMessage();
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = false;
     }, 1000)
   }
 
-  postCrossDomainMessage(msg) {
-    const win = document.getElementById('ifr')['contentWindow'];
-    win.postMessage(msg, "*");
+  postCrossDomainMessage() {
+    const data = this.postMsg;
+    const iframe = document.getElementById('ifr');
+    iframe['contentWindow'].postMessage({
+      action: 'save',
+      key: 'dataPanel',
+      value: data
+    })
   }
 }
