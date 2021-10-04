@@ -42,6 +42,6 @@ export class DataControlComponent implements OnInit {
 
   postCrossDomainMessage(msg) {
     const win = document.getElementById('ifr')['contentWindow'];
-    win.postMessage(msg, "https://microfrontends.rocks/");
+    win.postMessage(msg, "*");
   }
 }
