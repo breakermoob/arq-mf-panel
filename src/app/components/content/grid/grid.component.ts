@@ -19,7 +19,9 @@ export class GridComponent implements OnInit {
       const { action, key, value } = event.data;
       if (action == 'returnData') {
         window.localStorage.setItem(key, value);
-        this.data = JSON.parse(value);
+        this.data = eval(value);
+        console.log(value);
+        console.log(this.data);
       }
     }
   }
