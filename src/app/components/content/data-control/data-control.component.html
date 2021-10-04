@@ -1,6 +1,10 @@
 <section class="arq-mf-subdomain bg-secondary py-4 px-0 d-flex justify-content-center align-items-center">
-  <button type="button" class="btn btn-dark" (click)="sendData()" *ngIf="!isLoading; else loader">
-    Compartir datos</button>
+  <button type="button" class="btn btn-dark" (click)="sendData('get')" *ngIf="!isLoading; else loader">
+    Obtener datos</button>
+  <button type="button" class="btn btn-dark" (click)="sendData('save')" *ngIf="!isLoading; else loader">
+    Añadir datos</button>
+  <button type="button" class="btn btn-dark" (click)="sendData('delete')" *ngIf="!isLoading; else loader">
+    Eliminar datos</button>
   <ng-template #loader>
     <div class="spinner-grow" role="status">
       <span class="sr-only">Loading...</span>

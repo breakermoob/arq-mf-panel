@@ -32,21 +32,31 @@ export class DataControlComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendData() {
-    this.postCrossDomainMessage();
+  sendData(type: string) {
+    const iframe = document.getElementById('ifr');
+    const data = this.postMsg;
+    if (type === 'save') {
+      iframe['contentWindow'].postMessage({
+        action: 'save',
+        key: 'panelData',
+        value: data
+      }, '*')
+    } else if (type === 'delete') {
+      iframe['contentWindow'].postMessage({
+        action: 'delete',
+        key: 'panelData',
+        value: data
+      }, '*')
+    } else if (type === 'get') {
+      iframe['contentWindow'].postMessage({
+        action: 'get',
+        key: 'galleryData',
+        value: data
+      }, '*')
+    }
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = false;
     }, 1000)
-  }
-
-  postCrossDomainMessage() {
-    const data = this.postMsg;
-    const iframe = document.getElementById('ifr');
-    iframe['contentWindow'].postMessage({
-      action: 'save',
-      key: 'dataPanel',
-      value: data
-    }, '*')
   }
 }
