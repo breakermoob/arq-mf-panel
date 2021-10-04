@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-subdomain"
+    }
+  },
+  "defaultProject": "front-subdomain",
+  "cli": {
+    "analytics": false
+  }
 }
