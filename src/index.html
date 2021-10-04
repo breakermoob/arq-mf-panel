@@ -26,7 +26,7 @@
       action: 'get',
       key: 'dataPanel'
     })
-    window.addEventListener("mensaje", messageHandler, falso);
+    window.addEventListener("mensaje", messageHandler, false);
     function messageHandler(evento) {
       const { action, key, value } = event.data
       if (action == 'returnData') {
