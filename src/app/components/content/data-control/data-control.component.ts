@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class DataControlComponent implements OnInit {
 
   public isLoading: boolean = false;
-  private postMsg = [
+  public returnData = [];
+  private data = [
     {
       name: 'Ford Mustang Boss 429 Panel',
       keyName: 'ford-mustang-boss-429-panel',
@@ -34,7 +35,7 @@ export class DataControlComponent implements OnInit {
 
   sendData(type: string) {
     const iframe = document.getElementById('ifr');
-    const data = this.postMsg;
+    const data = this.data;
     if (type === 'save') {
       iframe['contentWindow'].postMessage({
         action: 'save',

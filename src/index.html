@@ -20,16 +20,6 @@
 <body>
   <app-root></app-root>
   <iframe style="display:none;" src="https://microfrontends.rocks/transfer.html" id="ifr"></iframe>
-  <script>
-    const iframe = document.getElementById('ifr')
-    window.addEventListener("message", messageHandler, false);
-    function messageHandler(evento) {
-      const { action, key, value } = event.data
-      if (action == 'returnData') {
-        window.localStorage.setItem({ key, value })
-      }
-    }
-  </script>
 </body>
 
 </html>

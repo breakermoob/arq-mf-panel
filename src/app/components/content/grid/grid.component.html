@@ -1,3 +1,5 @@
+<app-data-control></app-data-control>
+
 <section class="container-fluid arq-mf-gallery bg-secondary py-4 px-0" *ngIf="data; else loader">
   <div class="container-fluid bg-dark">
     <div class="container d-flex align-items-center justify-content-between">
@@ -7,6 +9,7 @@
       </div>
     </div>
   </div>
+
   <div class="container py-3">
     <div class="row row-cols-1 row-cols-md-2 g-5">
       <div class="col" *ngFor="let car of data">
@@ -25,8 +28,6 @@
 
 <ng-template #loader>
   <section class="arq-mf-gallery bg-secondary py-4 px-0 d-flex justify-content-center align-items-center">
-    <div class="spinner-grow" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
+    <h2 class=" text-light">No hay datos disponibles</h2>
   </section>
 </ng-template>

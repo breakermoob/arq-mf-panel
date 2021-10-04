@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-grid',
@@ -9,11 +10,18 @@ export class GridComponent implements OnInit {
 
   public data;
 
-  constructor() {
-    this.data = JSON.parse(window.localStorage.getItem('galleryData')) || [];
-  }
+  constructor() { }
 
   ngOnInit() {
+    const iframe = document.getElementById('ifr')
+    window.addEventListener("message", messageHandler, false);
+    function messageHandler(event) {
+      const { action, key, value } = event.data;
+      if (action == 'returnData') {
+        window.localStorage.setItem(key, value);
+        this.data = JSON.parse(window.localStorage.getItem('returnData'));
+      }
+    }
   }
 
 }
