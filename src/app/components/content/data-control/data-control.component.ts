@@ -47,6 +47,6 @@ export class DataControlComponent implements OnInit {
       action: 'save',
       key: 'dataPanel',
       value: data
-    })
+    }, '*')
   }
 }
