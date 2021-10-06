@@ -1,10 +1,10 @@
 <section class="arq-mf-subdomain bg-secondary py-4 px-0 d-flex justify-content-center align-items-center">
   <button type="button" class="btn btn-dark m-2" (click)="sendData('get')" *ngIf="!isLoading; else loader">
-    Obtener datos</button>
+    Obtener datos del dominio</button>
   <button type="button" class="btn btn-dark m-2" (click)="sendData('save')" *ngIf="!isLoading; else loader">
-    Compartir datos</button>
+    Compartir datos al dominio</button>
   <button type="button" class="btn btn-dark m-2" (click)="sendData('delete')" *ngIf="!isLoading; else loader">
-    Eliminar datos</button>
+    Eliminar todos los datos</button>
   <ng-template #loader>
     <div class="spinner-grow" role="status">
       <span class="sr-only">Loading...</span>

@@ -1,25 +1,10 @@
 <app-data-control></app-data-control>
+<amf-banner text="Autos disponibles en galería"></amf-banner>
 <section class="container-fluid arq-mf-gallery bg-secondary py-4 px-0" *ngIf="data; else loader">
-  <div class="container-fluid bg-dark">
-    <div class="container d-flex align-items-center justify-content-between">
-      <h2 class="text-light py-3" style="margin:0.5rem">Autos disponibles en galería</h2>
-      <div class="chete">
-        <i class="fab fa-angular fa-3x " style="--fa-primary-opacity: 0.20" style="color:#dd1b16"></i>
-      </div>
-    </div>
-  </div>
-
   <div class="container py-3">
     <div class="row row-cols-1 row-cols-md-2 g-5">
       <div class="col" *ngFor="let car of data">
-        <div class="card" href="https://microfrontends.rocks/detalles/{{car.keyName}}">
-          <img [src]="car.url" class="card-img-top" [alt]="car.name">
-          <div class="card-body">
-            <h5 class="card-title">{{car.name}}</h5>
-            <p class="card-text">{{car.description}}</p>
-            <p class="card-text"><small class="text-muted">{{car.origin}}</small></p>
-          </div>
-        </div>
+        <amf-card [car]="car"></amf-card>
       </div>
     </div>
   </div>

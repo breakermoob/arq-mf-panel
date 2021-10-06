@@ -43,6 +43,7 @@ export class DataControlComponent implements OnInit {
         value: data
       }, '*')
     } else if (type === 'delete') {
+      window.localStorage.removeItem('returnData');
       iframe['contentWindow'].postMessage({
         action: 'delete',
         key: 'panelData',
