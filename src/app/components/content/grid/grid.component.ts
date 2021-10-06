@@ -25,4 +25,9 @@ export class GridComponent implements OnInit {
     }, false);
   }
 
+  deleteStorage() {
+    window.localStorage.removeItem('returnData');
+    this.data = null;
+  }
+
 }

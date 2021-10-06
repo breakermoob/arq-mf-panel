@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-data-control',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class DataControlComponent implements OnInit {
 
   public isLoading: boolean = false;
+
+  @Output() delete = new EventEmitter<boolean>();
   public returnData = [];
   private data = [
     {
@@ -43,7 +45,7 @@ export class DataControlComponent implements OnInit {
         value: data
       }, '*')
     } else if (type === 'delete') {
-      window.localStorage.removeItem('returnData');
+      this.delete.emit();
       iframe['contentWindow'].postMessage({
         action: 'delete',
         key: 'panelData',
