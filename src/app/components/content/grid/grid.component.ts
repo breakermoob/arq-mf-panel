@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
@@ -10,26 +9,20 @@ export class GridComponent implements OnInit {
 
   public data;
 
-  @ViewChild('chete') chete: ElementRef;
-
   constructor() { }
 
   ngOnInit() {
     this.data = JSON.parse(window.localStorage.getItem('returnData'));
     const iframe = document.getElementById('ifr')
-    window.addEventListener("message", this.messageHandler, false);
-  }
+    window.addEventListener("message", (event) => {
 
-  messageHandler(event) {
-    const { action, key, value } = event.data;
-    if (action == 'returnData') {
-      window.localStorage.setItem(key, value);
-      this.chete.nativeElement.click();
-    }
-  }
+      const { action, key, value } = event.data;
+      if (action == 'returnData') {
+        window.localStorage.setItem(key, value);
+        this.data = JSON.parse(window.localStorage.getItem('returnData'));
+      }
 
-  setValues() {
-    this.data = JSON.parse(window.localStorage.getItem('returnData'));
+    }, false);
   }
 
 }
